@@ -1,0 +1,18 @@
+<p>Seja bem vindo {{ userName }}</p>
+
+<p [class]="className">Seja bem vindo a {{ getName() }}</p>
+
+
+<input type="button" value="Hello" (click)="printHello()">
+<button (click)="printHello()">Hello</button>
+
+
+<p>
+    <label for="">Digite seu email: </label>
+    <input type="email" [(ngModel)]="email">
+</p>
+<p>
+    enviando o contrato para o email: {{ email }}
+</p>
+
+<input type="button" (click)="confirmEmail()" value="Confirmar email"/>
