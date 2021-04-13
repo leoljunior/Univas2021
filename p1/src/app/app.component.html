@@ -1,0 +1,30 @@
+<h1>Meu dicionário de Inglês</h1>
+
+<form #myForm="ngForm" (ngSubmit)="saveWord(myForm)">
+
+  <div>
+    <label>Palavra:</label>
+    <input type="text" #palavra="ngModel" name="palavra" required [(ngModel)]="plv.palavra">
+
+  </div>
+  <div>
+    <label>Significado:</label>
+    <input type="text" #significado="ngModel" name="significado" required [(ngModel)]="plv.significado">
+
+    <div *ngIf="significado.invalid && (significado.dirty || significado.touched)">
+      <p>Campo Obrigatorio!!!</p>
+    </div>
+
+  </div>
+
+  <input type="submit" value="Salvar" [disabled]="!myForm.valid">
+
+</form>
+
+
+<div *ngIf="dicList.length > 0">
+  <div *ngFor="let plvra of dicList" class="plvDiv">
+    <p>Palavra: {{ plvra.palavra }} </p>
+    <p>Significado: {{ plvra.significado }} </p>
+  </div>
+</div>
