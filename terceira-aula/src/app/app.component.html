@@ -1,0 +1,58 @@
+<h1>Formulário</h1>
+
+<form #userForm="ngForm" (ngSubmit)="saveData(userForm)">
+  <div>
+    <label>Nome:</label>
+    <input type="text" id="name" name="name" required [(ngModel)]="student.name" minlength="4" #name="ngModel">
+    <!-- Sempre que usar no ngModel no form, tem que setar o atributo name=""-->
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      <p *ngIf="name.errors.required">Campo Obrigatório</p>
+      <p *ngIf="name.errors.minlength">Minimo de 4 caracteres</p>
+    </div>
+
+  </div>
+
+  <div>
+    <label>E-Mail:</label>
+    <input type="email" id="email" name="email" required [(ngModel)]="student.email" minlength="8" #email="ngModel">
+    <!-- salvar o dado digitado aqui no usuario.email -->
+
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <p *ngIf="email.errors.required">Campo Obrigatório</p>
+      <p *ngIf="email.errors.minlength">Minimo de 8 caracteres</p>
+    </div>
+
+  </div>
+
+  <input type="submit" value="Salvar" [disabled]="!userForm.valid">
+</form>
+
+<h2 *ngIf="students.length > 0">Lista de Estudantes:</h2>
+
+<!--
+<ul>
+  <li *ngFor="let stud of students">
+    {{ stud.name }} - {{ stud.email }}
+  </li>
+</ul>
+-->
+
+<table>
+  <thead>
+    <tr *ngIf="students.length > 0">
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Editar</th>
+      <th>Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stud of students">
+      <td>{{ stud.name }}</td>
+      <td>{{ stud.email }}</td>
+      <td><input type="button" value="Editar" (click)="editStudent(stud)"></td>
+      <td><input type="button" value="Remover" (click)="removeStudent(stud)"></td>
+    </tr>
+  </tbody>
+</table>
