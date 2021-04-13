@@ -7,9 +7,9 @@ import { Photo } from './photo';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  photoList : Photo[] = []
-  currentPhoto : Photo = new Photo()
+
+  photoList: Photo[] = []
+  currentPhoto: Photo = new Photo()
 
   constructor() { }
 
@@ -25,7 +25,7 @@ export class AppComponent {
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files
       reader.readAsDataURL(file)
-      
+
       reader.onload = () => {
         let imageSrc = reader.result as string
         this.currentPhoto.url = imageSrc
