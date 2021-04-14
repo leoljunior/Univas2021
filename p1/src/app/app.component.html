@@ -1,13 +1,14 @@
 <h1>Meu dicionário de Inglês</h1>
 
-<form #myForm="ngForm" (ngSubmit)="saveWord(myForm)">
+<form #myForm="ngForm" (ngSubmit)="saveWord(myForm)" (ngSubmit)="compareWord()">
 
   <div>
     <label>Palavra:</label>
-    <input type="text" #palavra="ngModel" name="palavra" required [(ngModel)]="plv.palavra">
-
+    <input type="text" #palavra="ngModel" name="palavra" required [(ngModel)]="plv.palavra"><br>
+    <div *ngIf="compareWord()">Essa palavra já existe no dicionário</div>
   </div>
   <div>
+    <br>
     <label>Significado:</label>
     <input type="text" #significado="ngModel" name="significado" required [(ngModel)]="plv.significado">
 
@@ -16,8 +17,8 @@
     </div>
 
   </div>
-
-  <input type="submit" value="Salvar" [disabled]="!myForm.valid">
+  <br>
+  <input type="submit" value="Salvar" [disabled]="!myForm.valid || compareWord()">
 
 </form>
 

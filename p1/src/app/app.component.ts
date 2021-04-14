@@ -14,13 +14,14 @@ export class AppComponent {
   constructor() { }
 
   saveWord(form) {
-
-    if (this.dicList.find(s => s.palavra === this.plv.palavra)) {
-      alert('Está palavra já consta no dicionário, digite outra palavra!!!')
-    } else {
       this.dicList.push(this.plv)
       this.plv = new Word()
       form.resetForm()
+  }
+
+  compareWord() {
+    if (this.dicList.find(s => s.palavra === this.plv.palavra)) {
+      return true
     }
   }
 }
