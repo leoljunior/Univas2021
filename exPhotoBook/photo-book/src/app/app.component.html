@@ -1,0 +1,33 @@
+<h1>Photo Book</h1>
+
+<h2>Add Photos:</h2>
+
+<form #myForm="ngForm" (ngSubmit)="addPhoto(myForm)">
+
+  <div>
+    <label>Title:</label>
+    <input type="text" name="title" [(ngModel)]="currentPhoto.title">
+  </div>
+  <div>
+    <label>Description:</label>
+    <input type="text" name="description" [(ngModel)]="currentPhoto.description">
+  </div>
+  <div>
+    <label>Select a Photo:</label>
+    <input type="file" (change)="onFileChange($event)" name="file" [(ngModel)]="currentPhoto.url">
+  </div>
+
+  <input type="submit" value="Save">
+</form>
+
+<div *ngIf="photoList.length > 0">
+  <h2>Added Photos:</h2>
+
+  <div>
+    <div *ngFor="let photo of photoList" class="photo">
+      <p>Title: {{ photo.title }}</p>
+      <img [src]="photo.url">
+      <p>Description: {{ photo.description }}</p>
+    </div>
+  </div>
+</div>
