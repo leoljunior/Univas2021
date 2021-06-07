@@ -5,14 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CpfPipe implements PipeTransform {
 
-  transform(value: string): string {
+  transform(value: string, dotSeparator: boolean): string {
 
-    return value.substring(0, 3) + '.' +
+    let result =  value.substring(0, 3) + '.' +
       value.substring(3, 6) + '.' +
-      value.substring(6, 9) + '-' +
-      value.substring(9);
+      value.substring(6, 9);
+      
+      if(dotSeparator){
+        result += '.'
+      }else{
+        result += '-'
+      }      
+      return result + value.substring(9);
   }
-
 }
 
 //parametro value: o tipo que vai se recebido pelo pipe

@@ -15,8 +15,10 @@ export class AppComponent {
       let student = new Student()
       student.nome = 'Aluno: ' + (i + 1)
       student.cpf = '74' + i + '81' + i + '25' + i + '49'
-      student.celular = '988' + i + '2-2' + i + '36' + i
+      student.celular = '988' + i + '22' + i + '36'
       student.dataNascimento = (i + 3) + '/04/200' + i
+      student.peso = i + 5 * 8
+      student.salario = i + (10 * 120 + i) + (i * 150)
 
       this.studentList.push(student)
     }

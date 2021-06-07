@@ -3,5 +3,6 @@ export class Student {
     cpf: string
     dataNascimento: string
     celular: string
-    
+    peso: number
+    salario: number
 }

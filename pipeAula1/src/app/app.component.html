@@ -7,6 +7,8 @@
       <th>CPF</th>
       <th>Data de Nascimento</th>
       <th>Celular</th>
+      <th>Peso</th>
+      <th>Salario</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +23,9 @@
         <p>{{ std.dataNascimento | date : 'dd-MM-yyyy' }}</p>
         
       </td>
-      <td>{{ std.celular }}</td>
-    </tr>
+      <td>{{ std.celular | cellphone : 11 }}</td>
+      <td>{{ std.peso | number }}</td>
+      <td>{{ std.salario | currency}}</td>
+    </tr> 
   </tbody>
 </table>
