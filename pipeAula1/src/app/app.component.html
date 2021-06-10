@@ -14,7 +14,7 @@
   <tbody>
     <tr *ngFor="let std of studentList">
       <td>{{ std.nome | uppercase }}</td>
-      <td>{{ std.cpf | cpf }}</td>
+      <td>{{ std.cpf | cpf : false }}</td>
       <td>
         <p>{{ std.dataNascimento | date : 'short' | lowercase }}</p>
         <p>{{ std.dataNascimento | date : 'medium' }}</p>

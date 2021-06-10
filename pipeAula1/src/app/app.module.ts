@@ -7,6 +7,7 @@ import { CellphonePipe } from './cellphone.pipe';
 
 import pt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+
 registerLocaleData(pt)
 
 @NgModule({
