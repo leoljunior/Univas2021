@@ -1,0 +1,26 @@
+<h2>Veículos Cadastrados</h2>
+
+<table *ngIf="cars.length > 0">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Ano Modelo</th>
+            <th>Detalhes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars">
+            <td>{{ car.brand }}</td>
+            <td>{{ car.modelYear }}</td>
+            <td>
+                <input type="button" value="Detalhes" (click)="showCarDetail()">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="cars.length === 0">
+    <p>Nenhum Veículo Cadastrado</p>
+</div>
+
+<app-detail-car></app-detail-car>
