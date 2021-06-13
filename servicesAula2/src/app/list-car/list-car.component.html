@@ -13,7 +13,7 @@
             <td>{{ car.brand }}</td>
             <td>{{ car.modelYear }}</td>
             <td>
-                <input type="button" value="Detalhes" (click)="showCarDetail()">
+                <input type="button" value="Detalhes" (click)="showCarDetail(car.id)">
             </td>
         </tr>
     </tbody>
@@ -23,4 +23,7 @@
     <p>Nenhum Veículo Cadastrado</p>
 </div>
 
-<app-detail-car></app-detail-car>
+
+<div *ngIf="selectedCar">
+    <app-detail-car [car]="selectedCar"></app-detail-car>
+</div>
