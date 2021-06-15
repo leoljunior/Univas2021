@@ -6,15 +6,15 @@ import { Student } from './student';
 })
 export class StudentService {
 
-  students: Student[]
+  students: Student[] = []
 
-  constructor() {
-    console.log('Estou no service')
-    this.students = []
+  constructor() { }
+
+  getAll() {
+    return this.students
   }
 
-  save(student: Student){
+  save(student: Student) {
     this.students.push(student)
   }
-
 }

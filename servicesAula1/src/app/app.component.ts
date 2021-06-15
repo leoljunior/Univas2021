@@ -12,7 +12,9 @@ export class AppComponent {
 newStudent: Student
 students: Student[]
 
-constructor(private studentService: StudentService){}
+constructor(private studentService: StudentService){
+  console.log('estou no component')
+}
 
 ngOnInit(){
   this.newStudent = new Student()
