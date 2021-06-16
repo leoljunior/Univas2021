@@ -17,4 +17,8 @@ export class StudentService {
   save(student: Student) {
     this.students.push(student)
   }
+
+  getById(id: number) {
+    return this.students.find(xuxa => xuxa.id === id)
+  }
 }
