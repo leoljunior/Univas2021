@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+
+<form #myForm (submit)="savePost(myForm)">
+    <div>
+        <label for="">Post</label>
+        <input type="text" #post name="post" [(ngModel)]="newPost.post">
+    </div>
+    <input type="submit" value="Salvar">
+</form>
+
+<ul>
+    <li *ngFor="let p of posts">
+        {{ p.post }} -
+        <input type="button" value="Apagar" (click)="deletePost(p.id)">
+    </li>
+</ul>
