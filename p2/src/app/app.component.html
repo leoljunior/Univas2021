@@ -1,0 +1,33 @@
+<h1>P2 - BILLS</h1>
+
+<body>
+<form #myForm (submit)="saveBill(myForm)">
+  <div>
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" #amount [(ngModel)]="newBill.amount">
+  </div>
+  <div>
+    <label for="product">Product:</label>
+    <input type="text" name="product" id="product" #product [(ngModel)]="newBill.product">
+  </div>
+  <div>
+    <label for="paymentMethod">Payment Method:</label>
+    <input type="text" name="paymentMethod" id="paymentMethod" #paymentMethod [(ngModel)]="newBill.paymentMethod">
+  </div>
+  <div>
+    <label for="customer">Customer:</label>
+    <input type="text" name="customer" id="customer" #customer [(ngModel)]="newBill.customer">
+  </div>
+  <input type="submit" value="Save">
+</form>
+</body>
+
+<div *ngIf="listBills.length > 0">
+  <h2>Bills List</h2>
+  <ul>
+    <li *ngFor="let x of listBills">
+      {{ x.amount }} - {{ x.product }} - {{ x.paymentMethod }} - {{ x.customer }}
+      <input type="button" value="Delete" (click)="delete(x.id)">
+    </li>
+  </ul>
+</div>
