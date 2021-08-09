@@ -9,7 +9,7 @@ import { BillService } from './bill.service';
 })
 export class AppComponent {
   
-  listBills: Bill[]
+  listBills: Bill[] = []
   newBill: Bill = {} as Bill
 
   constructor(private billService: BillService) {}

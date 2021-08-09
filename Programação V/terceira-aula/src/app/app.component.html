@@ -1,8 +1,8 @@
-<h1>Formulário</h1>
+<h1>Lista de Jóias</h1>
 
 <form #userForm="ngForm" (ngSubmit)="saveData(userForm)">
   <div>
-    <label>Nome:</label>
+    <label>Jóia:</label>
     <input type="text" id="name" name="name" required [(ngModel)]="student.name" minlength="4" #name="ngModel">
     <!-- Sempre que usar no ngModel no form, tem que setar o atributo name=""-->
 
@@ -14,8 +14,8 @@
   </div>
 
   <div>
-    <label>E-Mail:</label>
-    <input type="email" id="email" name="email" required [(ngModel)]="student.email" minlength="8" #email="ngModel">
+    <label>valor:</label>
+    <input type="number" id="email" name="email" required [(ngModel)]="student.email" minlength="8" #email="ngModel">
     <!-- salvar o dado digitado aqui no usuario.email -->
 
     <div *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -28,7 +28,7 @@
   <input type="submit" value="Salvar" [disabled]="!userForm.valid">
 </form>
 
-<h2 *ngIf="students.length > 0">Lista de Estudantes:</h2>
+<h2 *ngIf="students.length > 0">Jóias para venda:</h2>
 
 <!--
 <ul>
@@ -41,8 +41,8 @@
 <table>
   <thead>
     <tr *ngIf="students.length > 0">
-      <th>Nome</th>
-      <th>E-mail</th>
+      <th>Jóia</th>
+      <th>Valor</th>
       <th>Editar</th>
       <th>Remover</th>
     </tr>
@@ -50,7 +50,7 @@
   <tbody>
     <tr *ngFor="let stud of students">
       <td>{{ stud.name }}</td>
-      <td>{{ stud.email }}</td>
+      <td>{{ stud.email | currency }}</td>
       <td><input type="button" value="Editar" (click)="editStudent(stud)"></td>
       <td><input type="button" value="Remover" (click)="removeStudent(stud)"></td>
     </tr>
