@@ -1,23 +1,25 @@
-const port = 3003
-
 const express = require('express')
+const path = require('path')
 
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('Hello World!!')
+    res.send('Hello World!!!')
 })
 
 app.get('/faculdade', (req, res) => {
-    console.log('Univas')
+    res.send('Univás')
 })
+
 app.get('/aluno', (req, res) => {
-    console.log('Leonardo Jr')
+    res.send('Rodrigo Luís de Faria')
 })
 
-app.use(express.static('/web'))
+const staticFolderPath = path.join(__dirname, 'files')
 
+app.use('/arquivos/univas', express.static(staticFolderPath))
 
+const port = 8087
 
 app.listen(port, () => {
     console.log(`Server started on port: ${port}`)
