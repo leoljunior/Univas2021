@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: admin  #nome banco
+      POSTGRES_USER: admin  #nome user   
+      POSTGRES_PASSWORD: admin  #password
+    expose: #expor porta 5432
+      - "5432"
+    ports:  #mapear req que chegar na porta da maquina seja transferida pra msm porta do container
+      - "5432:5432"
+    volumes:  #o que tiver na pasta db sera mapeado para a pasta docker-entrypoint-initdb.d / script pro banco
+      - ./db:/docker-entrypoint-initdb.d
+  
